@@ -3,7 +3,7 @@ package pl.pawc.jokes.model;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Joke {
+public class Joke implements Comparable<Joke> {
 
 	private String author;
 	private String text;
@@ -55,5 +55,10 @@ public class Joke {
 			commentPart += comment.toString()+"\n";
 		}
 		return mainPart + commentPart;
+	}
+
+	public int compareTo(Joke joke) {
+		if(likes == joke.getLikes()) return 0;
+		return likes < joke.getLikes() ? 1 : -1;
 	}
 }
