@@ -5,6 +5,7 @@ import pl.pawc.jokes.model.Comment;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class Util {
 
@@ -72,6 +73,14 @@ public class Util {
 			result += comment.getText()+";";
 		}
 		return result.substring(0, result.length()-1);
+	}
+	
+	public static ArrayList<Joke> getArrayListFrom(HashMap<Integer, Joke> map){
+		ArrayList<Joke> result = new ArrayList<Joke>();
+		for(int key : map.keySet()){
+			result.add(map.get(key));
+		}
+		return result;
 	}
 	
 }
