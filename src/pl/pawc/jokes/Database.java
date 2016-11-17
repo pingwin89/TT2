@@ -2,6 +2,7 @@ package pl.pawc.jokes;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,6 +28,10 @@ public class Database {
 				key++;
 			}
 		}
+		catch(FileNotFoundException e){
+			e.printStackTrace();
+			return result;
+		}
 		catch(IOException e){
 			e.printStackTrace();
 			return result;
@@ -40,6 +45,9 @@ public class Database {
 	private static void close(BufferedReader bfr){
 		try{
 			bfr.close();
+		}
+		catch(NullPointerException e){
+			e.printStackTrace();
 		}
 		catch(IOException e){
 			e.printStackTrace();
@@ -66,6 +74,9 @@ public class Database {
 	private static void close(FileWriter fw){
 		try{
 			fw.close();
+		}
+		catch(NullPointerException e){
+			e.printStackTrace();
 		}
 		catch(IOException e){
 			e.printStackTrace();
